@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask whatIsGround;
 
-    float maxSpeed = 5.0f;
+    float maxSpeed = 100.0f;
     bool isOnGround = false;
+    bool jump = true;
 
     //Create a reference to the Rigidbody2D so we can manipulate it
     Rigidbody2D playerObject;
@@ -25,17 +26,23 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
       //Create a `float` that will be equal to the players horizontal input
-      float movementValueX = Input.GetAxis("Horizontal");
-
+      float movementValueX = 3.0f;
       //Change the X velocity of the Rigidbody2D to be equal to the movement value
       playerObject.velocity = new Vector2 (movementValueX, playerObject.velocity.y); 
 
       //check to see if the ground check object is touching the ground
       isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsGround);
 
-      if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true) 
+      if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && jump == true) 
       {
-            playerObject.AddForce(new Vector2(0.0f, 100.0f));
+        playerObject.AddForce(new Vector2(0.0f, 300.0f));
+        jump = false;
       }
+
+      if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false && jump == false)
+      {
+        playerObject.AddForce(new Vector2(0.0f, 200.0f));
+        jump = true;
+      } 
     }
 }
