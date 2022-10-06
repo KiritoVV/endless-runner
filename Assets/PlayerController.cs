@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask whatIsGround;
 
-    float maxSpeed = 100.0f;
+    float maxSpeed = 60.0f;
     bool isOnGround = false;
     bool jump = true;
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
       //Create a `float` that will be equal to the players horizontal input
-      float movementValueX = 3.0f;
+      float movementValueX = 4.0f;
       //Change the X velocity of the Rigidbody2D to be equal to the movement value
       playerObject.velocity = new Vector2 (movementValueX, playerObject.velocity.y); 
 
