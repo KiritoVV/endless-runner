@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collectible : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
     public int coinValue = 1;
      
@@ -17,7 +17,7 @@ public class collectible : MonoBehaviour
             if(gameObject.tag == "Coins")
             {
                 Debug.Log("AAAH");
-                GameObject.Find("scoreManager").GetComponent<scoreManager>().ChangeScore(coinValue);
+                GameObject.Find("ScoreManager").GetComponent<ScoreManager>()ChangeScore(coinValue);
             }
       
         }
