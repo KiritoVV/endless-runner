@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
       if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && jump == true) 
       {
-        playerObject.AddForce(new Vector2(0.0f, 300.0f));
+        playerObject.AddForce(new Vector2(0.0f, 600.0f));
         jump = false;
       }
 

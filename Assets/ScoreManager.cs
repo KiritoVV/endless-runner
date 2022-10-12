@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
    public TextMeshProUGUI text;
    private int score;

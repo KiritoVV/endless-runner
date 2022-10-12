@@ -5,10 +5,10 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     public int coinValue = 1;
-     
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /////////////////// COIN SYSTEM ///////////////////
+        /////////////////// COIN SYSTEM /////////////////////////
 
         //THE CODE BELOW ADDS 1 SCORE TO THE COIN THAT THE PLAYER COLLECTS!
 
@@ -17,15 +17,14 @@ public class Collectible : MonoBehaviour
             if(gameObject.tag == "Coins")
             {
                 Debug.Log("AAAH");
-                GameObject.Find("ScoreManager").GetComponent<ScoreManager>()ChangeScore(coinValue);
+                GameObject.Find("ScoreManager").GetComponent<ScoreManager>().ChangeScore(coinValue);
             }
-      
         }
 
-        //THIS DESTROYS THE COIN
+        //THIS DESTROYS THE COINS
         if(other.gameObject.CompareTag("Coins"))
         {
             Destroy(other.gameObject);
         }
-    }
+    }  
 }
