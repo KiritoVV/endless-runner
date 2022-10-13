@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     bool isOnGround = false;
     bool jump = true;
 
+    public float jumpForce = 300f;
+
     //Create a reference to the Rigidbody2D so we can manipulate it
     Rigidbody2D playerObject;
     
@@ -37,12 +39,12 @@ public class PlayerController : MonoBehaviour
         {
             if(isOnGround == true) 
             {
-                playerObject.AddForce(new Vector2(0.0f, 600.0f));
+                playerObject.AddForce(new Vector2(0.0f, jumpForce));
             } 
             else if (jump == true) 
             {
                 playerObject.velocity = new Vector2(playerObject.velocity.x, 0.0f);
-                playerObject.AddForce(new Vector2(0.0f, 50.0f));
+                playerObject.AddForce(new Vector2(0.0f, jumpForce));
                 jump = false;
             }
         }
